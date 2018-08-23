@@ -73,9 +73,10 @@ public class Lancamento extends BaseEntity implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Lancamento [data=" + data + ", descricao=" + descricao + ", localizacao=" + localizacao
+		return "Lancamento [id=" + super.getId() + ", data=" + data + ", descricao=" + descricao + ", localizacao=" + localizacao
 				+ ", dataCriacao=" + dataCriacao + ", dataAtualizacao=" + dataAtualizacao + ", tipo=" + tipo
 				+ ", funcionario=" + funcionario + "]";
 	}
+	
 
 }
