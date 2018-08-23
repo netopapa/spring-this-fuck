@@ -88,6 +88,8 @@ public class Funcionario extends BaseEntity implements Serializable {
 	@Setter
 	@OneToMany(mappedBy = "funcionario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Lancamento> lancamentos;
+	
+	public Funcionario() {}
 
 	@PreUpdate
 	public void preUpdate() {

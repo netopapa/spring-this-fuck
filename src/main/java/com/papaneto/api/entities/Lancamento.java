@@ -4,9 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -19,12 +20,14 @@ import com.papaneto.api.enums.TipoEnum;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
+@Setter
+@Entity
 public class Lancamento extends BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = -7217822711031681273L;
 
-	@Getter
-	@Setter
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "data", nullable = false)
 	private Date data;
@@ -56,7 +59,8 @@ public class Lancamento extends BaseEntity implements Serializable {
 
 	@Getter
 	@Setter
-	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn
+	@ManyToOne
 	private Funcionario funcionario;
 
 	@PreUpdate

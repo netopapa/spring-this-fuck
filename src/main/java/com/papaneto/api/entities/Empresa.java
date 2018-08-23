@@ -46,7 +46,7 @@ public class Empresa extends BaseEntity implements Serializable {
 	
 	@Getter
     @Setter
-	@OneToMany(mappedBy = "empresa", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "empresa", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Funcionario> funcionarios; 
 	
 	@PreUpdate
