@@ -18,34 +18,26 @@ import com.papaneto.api.entities.base.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "empresa")
 public class Empresa extends BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = -774734778916439241L;
 	
-	@Getter
-    @Setter
 	@Column(name = "razao_social", nullable = false)
 	private String razaoSocial;
-	
-	@Getter
-    @Setter
+
 	@Column(nullable = false)
 	private String cnpj;
-	
-	@Getter
-    @Setter
+
 	@Column(name = "data_criacao", nullable = false)
 	private Date dataCriacao;
-	
-	@Getter
-    @Setter
+
 	@Column(name = "data_atualizacao", nullable = false)
 	private Date dataAtualizacao;
-	
-	@Getter
-    @Setter
+
 	@OneToMany(mappedBy = "empresa", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Funcionario> funcionarios; 
 	

@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -23,6 +24,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@Table(name = "lancamento")
 public class Lancamento extends BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = -7217822711031681273L;
@@ -31,34 +33,22 @@ public class Lancamento extends BaseEntity implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "data", nullable = false)
 	private Date data;
-
-	@Getter
-	@Setter
+	
 	@Column(name = "descricao", nullable = true)
 	private String descricao;
 
-	@Getter
-	@Setter
 	@Column(name = "localizacao", nullable = true)
 	private String localizacao;
 
-	@Getter
-	@Setter
 	@Column(name = "data_criacao", nullable = false)
 	private Date dataCriacao;
 
-	@Getter
-	@Setter
 	@Column(name = "data_atualizacao", nullable = false)
 	private Date dataAtualizacao;
 
-	@Getter
-	@Setter
 	@Enumerated(EnumType.STRING)
 	private TipoEnum tipo;
 
-	@Getter
-	@Setter
 	@JoinColumn
 	@ManyToOne
 	private Funcionario funcionario;
